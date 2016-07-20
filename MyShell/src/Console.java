@@ -4,7 +4,7 @@ public class Console {
 		MyShell shell = new MyShell();
 		
 		shell.installCommand("prompt", new CommandPrompt(shell));
-		
+
 		shell.runShell();
 	}
 }
