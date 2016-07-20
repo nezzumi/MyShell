@@ -47,16 +47,26 @@ public class MyShell {
 	}
 	
 	public void runShell() {
-		
 		Scanner input = new Scanner(System.in);
 		
 		while(mIsActive) {
 			System.out.print(this);
 			mInputs = input.nextLine().split(" ");
+			parseInput();
 		}
-		
 		input.close();
 	}
+	
+	private void parseInput() {
+		if( mCommands.containsKey(mInputs[0])) {
+			mCommands.get(mInputs[0]).execute();
+		} else {
+			System.out.println(mInputs[0] +" : unkown command");
+		}
+	}
 
+	public String toString() {
+		return mName + ' ' + mPrompt;
+	}
 
 }
