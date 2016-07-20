@@ -22,7 +22,7 @@ public class MyShell {
 	}
 	
 	public void setPrompt(String newPrompt) {
-		mPrompt = newPrompt;
+		mPrompt = newPrompt + '>';
 	}
 
 	public void setCwd(String newCwd) {
@@ -33,6 +33,14 @@ public class MyShell {
 		return mInputs;
 	}
 
+	public String getShellName() {
+		return mName;
+	}
+	
+	public String getCwd() {
+		return mCwd;
+	}
+	
 	public void installCommand(String name, ShellCommand newCommand) {
 		
 		if( mCommands.get(name) != null ) {
