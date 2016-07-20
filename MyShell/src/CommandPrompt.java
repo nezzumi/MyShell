@@ -13,6 +13,8 @@ public class CommandPrompt implements ShellCommand {
 		
 		if( arg.length > 2 ) {
 			System.out.println("Prompt : to many arguments");
+		} else if( arg.length == 1 ) {
+			System.out.println("Prompt : not enough arguments ");
 		} else {
 			switch( arg[1] ) {
 				case "reset": {
