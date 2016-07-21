@@ -6,29 +6,34 @@ import java.util.Scanner;
 public class MyShell {
 	
 	private String 				mName;		//shellname
-	private String 				mPrompt;		//prompt
+	private StringBuilder			mPrompt;		//prompt
 	private String[]				mInputs;		//user imputs convert to array
-	private String 				mCwd;		//current working dir
+	private StringBuilder			mCwd;		//current working dir
 	private boolean 				mIsActive;	//running after false
 	private Map<String, ShellCommand> 	mCommands;	//all supproted commands
 	
 	
 	public MyShell() {
 		mName = "[MyShell]";
-		mPrompt = "$>";
-		mCwd = System.getProperty("user.dir");
+		mPrompt = new StringBuilder("$");
+		mCwd = new StringBuilder(System.getProperty("user.dir"));
 		mIsActive = true;
 		mCommands = new HashMap<String, ShellCommand>();
 	}
 	
 	public void setPrompt(String newPrompt) {
-		mPrompt = newPrompt + '>';
+		mPrompt.replace(0, mPrompt.length(), newPrompt);
 	}
 
 	public void setCwd(String newCwd) {
-		mCwd = newCwd;
+		mCwd.replace(0, mCwd.length(), newCwd);
 	}
 
+	public void setCwd() {
+		mPrompt = mCwd;
+	}
+
+	
 	public String[] getImputs() {
 		return mInputs;
 	}
@@ -38,7 +43,7 @@ public class MyShell {
 	}
 	
 	public String getCwd() {
-		return mCwd;
+		return mCwd.toString();
 	}
 	
 	public void installCommand(String name, ShellCommand newCommand) {
@@ -58,7 +63,7 @@ public class MyShell {
 		Scanner input = new Scanner(System.in);
 		
 		while(mIsActive) {
-			System.out.print(this);
+			System.out.print(this.toString() + '>');
 			mInputs = input.nextLine().split(" ");
 			parseInput();
 		}
