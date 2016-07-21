@@ -15,8 +15,13 @@ public class CommandCd implements ShellCommand {
 		}		
 	}
 	
-	private void switchDir() {
-		
+	private void switchDir(String arg) {
+		File file = new File(mShell.getCwd()+'\\'+arg);
+		if( file.exists() ) {
+			mShell.setCwd(file.getPath());
+		} else {
+			System.out.println(arg + " : director not exist");
+		}
 	}
 	
 	@Override
@@ -34,7 +39,7 @@ public class CommandCd implements ShellCommand {
 					break;
 				}
 				default: {
-					switchDir();
+					switchDir(arg[1]);
 					break;
 				}
 			}
