@@ -1,7 +1,7 @@
 
 public class CommandPrompt implements ShellCommand {
 
-	MyShell mShell;
+	private MyShell mShell;
 	
 	public CommandPrompt(MyShell newShell) {
 		mShell = newShell;
@@ -9,8 +9,7 @@ public class CommandPrompt implements ShellCommand {
 	
 	@Override
 	public void execute() {		
-		String[] arg = mShell.getImputs();
-		
+		String[] arg = mShell.getImputs();	
 		if( arg.length > 2 ) {
 			System.out.println("Prompt : to many arguments");
 		} else if( arg.length == 1 ) {
@@ -18,11 +17,11 @@ public class CommandPrompt implements ShellCommand {
 		} else {
 			switch( arg[1] ) {
 				case "reset": {
-					mShell.setCwd("$");
+					mShell.setPrompt("$");
 					break;
 				}
 				case "$cwd": {
-					mShell.setCwd();
+					mShell.setPromptCwd();
 					break;
 				}
 				default: {

@@ -10,7 +10,7 @@ public class MyShell {
 	private String[]				mInputs;		//user imputs convert to array
 	private StringBuilder			mCwd;		//current working dir
 	private boolean 				mIsActive;	//running after false
-	private Map<String, ShellCommand> 	mCommands;	//all supproted commands
+	private Map<String, ShellCommand> 	mCommands;	//all supported commands
 	
 	
 	public MyShell() {
@@ -29,7 +29,7 @@ public class MyShell {
 		mCwd.replace(0, mCwd.length(), newCwd);
 	}
 
-	public void setCwd() {
+	public void setPromptCwd() {
 		mPrompt = mCwd;
 	}
 

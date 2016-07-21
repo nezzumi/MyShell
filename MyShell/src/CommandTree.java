@@ -20,6 +20,7 @@ public class CommandTree implements ShellCommand {
 			}
 		}
 	}
+
 	@Override
 	public void execute() {
 		File file = new File(mShell.getCwd());

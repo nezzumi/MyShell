@@ -8,6 +8,17 @@ public class CommandCd implements ShellCommand {
 		mShell = newShell;
 	}
 	
+	private void goToParent() {
+		String parent = new File(mShell.getCwd()).getParent();
+		if(parent != null) {
+			mShell.setCwd(parent);
+		}		
+	}
+	
+	private void switchDir() {
+		
+	}
+	
 	@Override
 	public void execute() {
 	
@@ -19,14 +30,14 @@ public class CommandCd implements ShellCommand {
 		else 
 			switch( arg[1] ) {
 				case "..": {
-					String parent = new File(mShell.getCwd()).getParent();
-					if(parent != null) {
-						mShell.setCwd(parent);
-					}
+					goToParent();
+					break;
+				}
+				default: {
+					switchDir();
 					break;
 				}
 			}
-		
 	}
 
 }
