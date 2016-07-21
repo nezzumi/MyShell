@@ -9,14 +9,14 @@ public class CommandTree implements ShellCommand {
 	}
 	
 	private void searchTree( File file, int depth ) {
-		
 		File[] files = file.listFiles();
 		String _depth = new String(new char[depth]).replace('\0', '-');
-		
-		for( File _file:files ) {
-			if( _file.isDirectory() && _file != null ) {
-				System.out.println(_depth + _file.getName());
-				searchTree(_file, depth+1);
+		if ( files != null ) {
+			for( File _file:files ) {
+				if( (_file.isDirectory())) {
+					System.out.println(_depth + _file.getName());
+					searchTree(_file, depth+1);
+				}
 			}
 		}
 	}

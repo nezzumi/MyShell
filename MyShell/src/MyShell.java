@@ -47,8 +47,7 @@ public class MyShell {
 		return mCwd.toString();
 	}
 	
-	public void installCommand(String name, ShellCommand newCommand) {
-		
+	public void installCommand(String name, ShellCommand newCommand) {		
 		if( mCommands.get(name) != null ) {
 			System.out.println(name + ": command already installed" );
 		} else {
@@ -61,10 +60,9 @@ public class MyShell {
 	}
 	
 	public void runShell() {
-		Scanner input = new Scanner(System.in);
-		
+		Scanner input = new Scanner(System.in);		
 		while(mIsActive) {
-			System.out.print(this.toString() + '>');
+			System.out.print(this.toString());
 			mInputs = input.nextLine().split(" ");
 			parseInput();
 		}
@@ -80,7 +78,7 @@ public class MyShell {
 	}
 
 	public String toString() {
-		return mName + ' ' + mPrompt;
+		return mName + ' ' + mPrompt + '>';
 	}
 
 }
