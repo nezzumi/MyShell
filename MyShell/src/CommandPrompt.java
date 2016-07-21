@@ -22,7 +22,7 @@ public class CommandPrompt implements ShellCommand {
 					break;
 				}
 				case "$cwd": {
-					System.out.println(mShell.getShellName() +' '+mShell.getCwd() );
+					mShell.setCwd();
 					break;
 				}
 				default: {

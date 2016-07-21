@@ -6,6 +6,7 @@ public class Console {
 		shell.installCommand("prompt",new CommandPrompt(shell));
 		shell.installCommand("dir", 	new CommandDir(shell));
 		shell.installCommand("tree", 	new CommandTree(shell));
+		shell.installCommand("cd", 	new CommandCd(shell));
 
 		shell.runShell();
 	}
