@@ -10,6 +10,7 @@ public class CommandExit implements ShellCommand {
 	@Override
 	public void execute() {
 		mShell.quitShell();
+		System.out.println("Bye");
 	}
 
 }
