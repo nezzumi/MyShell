@@ -26,7 +26,6 @@ public class CommandCd implements ShellCommand {
 	
 	@Override
 	public void execute() {
-	
 		String[] arg = mShell.getImputs();
 		if( arg.length > 2)
 			System.out.println("cd : to many arguments");
