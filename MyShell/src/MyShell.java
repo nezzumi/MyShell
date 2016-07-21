@@ -22,7 +22,8 @@ public class MyShell {
 	}
 	
 	public void setPrompt(String newPrompt) {
-		mPrompt.replace(0, mPrompt.length(), newPrompt);
+//		mPrompt.replace(0, mPrompt.length(), newPrompt);
+		mPrompt = new StringBuilder(newPrompt);
 	}
 
 	public void setCwd(String newCwd) {
